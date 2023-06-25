@@ -28,6 +28,10 @@ Note that if the executable is not signed in Windows, the terminal will return a
 npm run dist
 ```
 
+## Download the executable
+
+The executable can be found in the release section or can be downloaded via the following [link].(https://github.com/ikerBorr/Scratch3-LEGO-WeDo1.0/releases/download/v0.1/Scratch.3.29.1.Setup.exe)
+
 ## Contributing
 
 In order to modify or customize the button images or icons, you can edit the `index.jsx` file. On the other hand, the operation of the extension is described in the files of the `src` directory.
