@@ -6,7 +6,7 @@ This is an extension compatible with `Scratch-Desktop` and the `LEGO WeDo 1.0` d
 
 In order to install and build the application you need to download the `Scratch-Desktop` repository. Afterwards, the [`node-hid`](https://www.npmjs.com/package/node-hid) module must be installed. And, finally, save the new extension in the corresponding directory. In this last step it will also be necessary to modify some `Scratch-gui` and `Scratch-vm` files.
 
-The [`Node`](https://nodejs.org/en/blog/release/v16.20.0) version used was `16.20.0`. And the version of `node-hid` has been `2.1.2`.
+The `Node` version used was [`16.20.0`](https://nodejs.org/en/blog/release/v16.20.0). And the version of `node-hid` has been `2.1.2`.
 
 ```bash
 git clone https://github.com/scratchfoundation/scratch-desktop.git
