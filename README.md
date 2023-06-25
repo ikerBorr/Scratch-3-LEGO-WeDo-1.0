@@ -1,12 +1,12 @@
 # New Scratch-Desktop version compatible with LEGO WeDo 1.0.
 
-This is an extension compatible with `Scratch-Desktop` and the `LEGO WeDo 1.0` device.
+This extension is compatible with `Scratch-Desktop` and the `LEGO WeDo 1.0` device.
 
 ## Installation
 
-In order to install and build the application you need to download the `Scratch-Desktop` repository. Afterwards, the [`node-hid`](https://www.npmjs.com/package/node-hid) module must be installed. And, finally, save the new extension in the corresponding directory. In this last step it will also be necessary to modify some `Scratch-gui` and `Scratch-vm` files.
+To install and build the application, you will need to download the `Scratch-Desktop` repository. Next, you should install the [`node-hid`](https://www.npmjs.com/package/node-hid) module. Finally, save the new extension in the appropriate directory. During this last step, it will also be necessary to modify certain `Scratch-gui` and `Scratch-vm` files.
 
-The `Node` version used was [`16.20.0`](https://nodejs.org/en/blog/release/v16.20.0). And the version of `node-hid` has been `2.1.2`.
+The application was built using `Node` version [`16.20.0`](https://nodejs.org/en/blog/release/v16.20.0), and the `node-hid` module version `2.1.2` was utilized.
 
 ```bash
 git clone https://github.com/scratchfoundation/scratch-desktop.git
@@ -21,8 +21,8 @@ cp ../resource/index.jsx /node_modules/scratch-gui/src/lib/libraries/extensions/
 ```
 
 ## Build
- 
-Note that if the executable is not signed in Windows, the terminal will return an error. In any case, inside the `Dist` directory, you can find the unsigned executable.
+
+Please note that if the executable is not signed in Windows, the terminal will return an error. However, you can still find the unsigned executable inside the `Dist` directory.
 
 ```bash
 npm run dist
@@ -30,12 +30,12 @@ npm run dist
 
 ## Download
 
-The executable can be found in the release section or can be downloaded via the following [link](https://github.com/ikerBorr/Scratch3-LEGO-WeDo1.0/releases/download/v0.1/Scratch.3.29.1.Setup.exe).
+The executable can be found in the release section or can be downloaded using the following [link](https://github.com/ikerBorr/Scratch3-LEGO-WeDo1.0/releases/download/v0.1/Scratch.3.29.1.Setup.exe).
 
 ## Contributing
 
-In order to modify or customize the button images or icons, you can edit the `index.jsx` file. On the other hand, the operation of the extension is described in the files of the `src` directory.
+To modify or customize the button images or icons, you can edit the `index.jsx` file. Additionally, the functionality of the extension is described in the files within the `src` directory.
 
-All remaining information can be found in the repositories `scratch-gui`, `scratch-vm` and `scratch-desktop`.
+For further information, you can refer to the repositories `scratch-gui`, `scratch-vm` and `scratch-desktop`.
 
-It should be noted that in order to control the `LEGO WeDo 1.0` device, the [`node-wedo`](https://github.com/nathankellenicki/node-wedo/) module has been used as a reference, although some modifications have been added.
+Please note that the [`node-wedo`](https://github.com/nathankellenicki/node-wedo/) module has been used as a reference for controlling the `LEGO WeDo 1.0` device, with some additional modifications.
