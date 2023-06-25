@@ -1,4 +1,4 @@
-# Version of Scratch 3 compatible with LEGO WeDo 1.0.
+# New Scratch-Desktop version compatible with LEGO WeDo 1.0.
 
 This is an extension compatible with `Scratch-Desktop` and the `LEGO WeDo 1.0` device.
 
