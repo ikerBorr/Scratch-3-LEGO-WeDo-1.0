@@ -165,19 +165,19 @@ class Wedo1 {
 
         const delay = ms => new Promise(res => setTimeout(res, ms));
 
-        const p = this._wedo.turnOnMotor(consts.MOTOR[motor], consts.FLAG_POWER.DEFAULT);
+        await this._wedo.turnOnMotor(consts.MOTOR[motor], consts.FLAG_POWER.DEFAULT);
         await delay(time * 1000);
-        this._wedo.turnOnMotor(consts.MOTOR[motor], consts.FLAG_POWER.OFF);
+        await this._wedo.turnOnMotor(consts.MOTOR[motor], consts.FLAG_POWER.OFF);
     }
 
-    turnOn({motor}){
+    async turnOn({motor}){
 
-        this._wedo._turnOnMotor(consts.MOTOR[motor], consts.FLAG_POWER.DEFAULT);
+        await this._wedo._turnOnMotor(consts.MOTOR[motor], consts.FLAG_POWER.DEFAULT);
     }
 
-    turnOff({motor}){
+    async turnOff({motor}){
 
-        this._wedo._turnOnMotor(consts.MOTOR[motor], consts.FLAG_POWER.OFF);
+        await this._wedo._turnOnMotor(consts.MOTOR[motor], consts.FLAG_POWER.OFF);
     }
 
     setPower({motor, power}){
