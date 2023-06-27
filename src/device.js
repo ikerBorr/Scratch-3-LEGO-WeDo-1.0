@@ -6,7 +6,7 @@ const VENDOR_ID = 0x0694;
 const PRODUCT_ID = 0x003;
 
 const MAX_POWER = 127;
-const DEFAULT_POWER = 10;
+const DEFAULT_POWER = 40;
 
 const UID = 0x00;
 
@@ -42,20 +42,34 @@ class Device {
     startEx() {
 
         this._loadVariables();
-        
-        try {
-            this._hub = new HID.HID(this._path);
-        } catch(e) {
-            return e;
+
+        if (!this._hub && this._path != "")
+        {
+            try {
+                this._hub = new HID.HID(this._path);
+            } catch(e) {
+                return e;
+            }
         }
     }
 
     stopAll() {
 
-        if (this._hub) {
+        const hub = this._hub;
+
+        if (hub) {
+
             this.turnOnMotor(consts.MOTOR["motor A"], 0);
             this.turnOnMotor(consts.MOTOR["motor B"], 0);
-            this._hub.close();
+
+            this._hub = false;
+
+            try {
+                hub.close();
+            } catch(e) {
+                console.log(e);
+                this._hub = true;
+            }
         }
     }
 
@@ -69,15 +83,15 @@ class Device {
             return "No se ha encontrado dispositivos.";
         }
 
-        this._path = devices[0].path;
-
         try {
-            this._hub = new HID.HID(this._path);
+            this._hub = new HID.HID(devices[0].path);
         } catch(e) {
             return e;
         }
 
         this._hub.on("data", this._incomingData.bind(this));
+        this._hub.on("error", (e) => { console.log(e); });
+        this._path = devices[0].path;
     }
 
     _incomingData(data) {
@@ -149,19 +163,22 @@ class Device {
             this._connect();
         }
 
-        let power = Math.floor(30 + ((MAX_POWER - 30) * this._motor_power[motor]) / 100) * flag_power;
+        let power = this._motor_power[motor];
 
         if (motor >= 0 && motor <= 1 && power <= 100 && power >= 0) {
             
-            power *= (MAX_POWER / 100) * this._motor_dir[motor];
+            power = Math.floor(30 + ((MAX_POWER - 30) * power) / 100) * flag_power * this._motor_dir[motor];
             const motors_pwr = [!motor * power, motor * power];
             
             const message = [UID, 0x40, motors_pwr[0] & 0xff, motors_pwr[0] & 0xff, 0x00, 0x00, 0x00, 0x00, 0x00];
-            this._hub.write(message);
-        }
+            try {
+                this._hub.write(message);
+            } catch(e) {
+                console.log(e);
+            }
 
-        await delay(100);
-        
+            await delay(100);
+        }
     }
 
     setPower(motor, power) {
