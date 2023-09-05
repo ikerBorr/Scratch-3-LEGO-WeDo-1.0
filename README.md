@@ -30,7 +30,7 @@ npm run dist
 
 ## Download
 
-The executable can be found in the release section or can be downloaded using the following [link](https://github.com/ikerBorr/Scratch-3-LEGO-WeDo-1.0/releases/download/Beta/Scratch.3.29.1.Setup.exe).
+The executable can be found in the release section or can be downloaded using the following [link](https://github.com/ikerBorr/Scratch-3-LEGO-WeDo-1.0/releases/download/Beta/Scratch.3.30.5.Setup.exe).
 
 ## Contributing
 
